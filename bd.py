@@ -12,9 +12,11 @@ VALUES
   (?, ?, ?, ?)
 """
 
-select_all_users = """
-SELECT personal_id FROM profilesio;"""
+select_all_personal_id_users = """
+SELECT personal_id, favourite_city FROM profilesio;"""
 
+check_city = """
+SELECT EXISTS(SELECT city FROM profilesio"""
 
 create_table = """
 CREATE TABLE profilesio
@@ -22,26 +24,13 @@ CREATE TABLE profilesio
 personal_id INTEGER NOT NULL,
 name VARCHAR(200) NOT NULL,
 username VARCHAR(200) NULL,
-language VARCHAR(50) NOT NULL)
+language VARCHAR(50) NOT NULL,
+favourite_city VARCHAR(100) NULL)
 ;"""
 
-info = (
-        1,
-        'fds',
-        'fssdf',
-        'ru',
-    )
-# cursor.execute(create_table)
-# cursor.execute(add_user, [13312312, 'Bobu', 'Rok', 'ru'])
-# # connection.commit()
-# cursor.execute("SELECT EXISTS(SELECT personal_id from profilesio WHERE personal_id=13312312)")
-# if cursor.fetchone()[0] == 0:
-#     print('DOes not exist')
-# else:
-#     cursor.execute(add_user, [1231131232, 'fsdkldslf', 'fjslfsd', 'eng'])
-#     connection.commit()
+update_city = """
+UPDATE profilesio
+SET favourite_city=?
+WHERE personal_id=?;"""
 
-# infof = cursor.execute(select_all_users)
-# for i in infof:
-#     print(i[0])
 
