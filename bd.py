@@ -1,7 +1,6 @@
 import sqlite3
 
-connection = sqlite3.connect("/home/yuriy/PycharmProjects/"
-                               "NewTelegramBot/sm_app.sqlite", check_same_thread=False)
+connection = sqlite3.connect("path_to_project/sm_app.sqlite", check_same_thread=False)
 cursor = connection.cursor()
 
 
